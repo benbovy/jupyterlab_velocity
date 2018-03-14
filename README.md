@@ -6,6 +6,11 @@ A Jupyterlab MIME renderer extension for leaflet-velocity.
 
 ![Demo](img/demo.gif)
 
+This is based on
+[leaflet-velocity-ts](https://github.com/0nza1101/leaflet-velocity-ts)
+and this has been much influenced by the
+[geojson extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension).
+
 ## Prerequisites
 
 * JupyterLab
