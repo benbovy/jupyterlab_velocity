@@ -2,6 +2,9 @@
 
 A Jupyterlab MIME renderer extension for leaflet-velocity.
 
+**Note: this is experimental!**
+
+![Demo](img/demo.gif)
 
 ## Prerequisites
 
