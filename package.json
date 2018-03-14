@@ -1,7 +1,7 @@
 {
   "name": "jupyterlab_velocity",
   "version": "0.1.0",
-  "description": "A JupyterLab extension for rendering VelocityJSON",
+  "description": "A JupyterLab extension for rendering leaflet-velocity maps.",
   "author": "Benoit Bovy <bbovy@gfz-potsdam.de>",
   "main": "lib/index.js",
   "keywords": [
