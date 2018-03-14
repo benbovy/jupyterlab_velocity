@@ -120,9 +120,11 @@ class OutputWidget extends Widget implements IRenderMime.IRenderer {
     const data = model.data[this._mimeType] as any;
     const metadata = model.metadata[this._mimeType] as any || {};
 
+    this._bounds = metadata['bounds'];
+
     return new Promise<void>((resolve, reject) => {
-      console.log(JSON.parse(data));
-      console.log(metadata);
+      //console.log(JSON.parse(data));
+      //console.log(metadata);
 
       // Add base layer
       Esri_WorldImagery.addTo(this._map);
@@ -153,7 +155,11 @@ class OutputWidget extends Widget implements IRenderMime.IRenderer {
         metadata['field_name'] || "Velocity Field"
       );
 
-      this._map.setView([53.6, -0.4], 10);
+      // Fit bounds
+      //this._map.fitBounds(this._bounds);
+      this._map.setView(metadata['latlon_center'] || [0., 0.],
+                        metadata['zoom'] || 2);
+
       this.update();
       resolve();
     });
@@ -199,10 +205,12 @@ class OutputWidget extends Widget implements IRenderMime.IRenderer {
     // Update map size after update
     if (this.isVisible) this._map.invalidateSize();
     // Update map size after panel/window is resized
-    //this._map.fitBounds(this._geoJSONLayer.getBounds());
+    //this._map.fitBounds(this._velocityLayer.getBounds());
+    //this._map.fitBounds(this._bounds);
   }
 
   private _map: L.Map;
+  private _bounds: any;
   private _layerControl: L.Control.Layers;
   private _velocityLayer: any;   // L.VelocityLayer not found?
   private _mimeType: string;
