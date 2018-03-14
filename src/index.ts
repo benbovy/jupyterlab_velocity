@@ -44,15 +44,23 @@ const Esri_WorldImagery: L.TileLayer = L.tileLayer(
   }
 );
 
-const Esri_WorldTopoMap: L.TileLayer = L.tileLayer(
+const Esri_WorldPhysical: L.TileLayer = L.tileLayer(
   'https://server.arcgisonline.com/ArcGIS/rest/services/' +
-    'World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+    'World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
   {
-    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, ' +
-      'Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, ' +
-      'Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), ' +
-      'and the GIS User Community'
-    }
+    attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service',
+    maxZoom: 8
+  }
+);
+
+const Esri_OceanBasemap: L.TileLayer = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/' +
+    'Ocean_Basemap/MapServer/tile/{z}/{y}/{x}',
+  {
+    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, ' +
+      'OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+    maxZoom: 13
+  }
 );
 
 const Esri_WorldShadedRelief: L.TileLayer = L.tileLayer(
@@ -74,11 +82,23 @@ const CartoDB_DarkMatter: L.TileLayer = L.tileLayer(
   }
 );
 
+const CartoDB_Positron: L.TileLayer = L.tileLayer(
+  'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+  {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+      '&copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }
+);
+
 const baseLayers: { [key:string]:L.TileLayer; } = {
   "Satellite": Esri_WorldImagery,
-  "Topographical map": Esri_WorldTopoMap,
+  "Physical": Esri_WorldPhysical,
+  "Ocean": Esri_OceanBasemap,
   "Shaded Relief": Esri_WorldShadedRelief,
-  "Dark": CartoDB_DarkMatter
+  "Dark": CartoDB_DarkMatter,
+  "Positron": CartoDB_Positron
 };
 
 
