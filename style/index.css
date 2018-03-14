@@ -1,0 +1,23 @@
+.jp-OutputWidgetVelocityJSON {
+
+}
+
+.jp-OutputWidgetVelocityJSON.leaflet-container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.jp-OutputArea .jp-OutputWidgetVelocityJSON {
+  height: 480px;
+}
+
+div.output_subarea.output_VelocityJSON {
+  padding: 0.4em 0;
+  max-width: 100%;
+}
+
+.leaflet-canvas-layer {
+  opacity: 0.55;
+}
