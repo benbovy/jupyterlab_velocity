@@ -1,3 +1,5 @@
+**This repository is archived**: it has been included in [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet).
+
 # jupyterlab_velocity
 
 A Jupyterlab MIME renderer extension for leaflet-velocity.
